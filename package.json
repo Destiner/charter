@@ -2,7 +2,7 @@
   "name": "charter",
   "version": "1.0.0",
   "description": "Generate charts from CSV data",
-  "license": "UNLICENSED",
+  "license": "MIT",
   "repository": {
     "type": "git",
     "url": "git://github.com/Destiner/charter.git"
