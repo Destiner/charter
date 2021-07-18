@@ -8,7 +8,7 @@
 					type="text"
 				/>
 				<div v-if="data">
-					{{ data.header.length }} datasets, {{ data.values.length }} rows
+					{{ data.ids.length }} datasets, {{ data.values.length }} rows
 				</div>
 			</div>
 			<div>
@@ -96,6 +96,13 @@
 		</div>
 		<div class="output">
 			<h2>Output</h2>
+			<Chart
+				v-if="data"
+				type="line"
+				:is-stacked="isStacked"
+				:is-normalized="isNormalized"
+				:data="data"
+			/>
 		</div>
 	</div>
 </template>
@@ -103,9 +110,13 @@
 <script lang="ts">
 import { defineComponent, ref, computed } from 'vue';
 
+import Chart from '@/components/Chart.vue';
 import { parseCSV } from '@/utils/csvParser';
 
 export default defineComponent({
+	components: {
+		Chart,
+	},
 	setup() {
 		const dataText = ref('');
 		const data = computed(() => parseCSV(dataText.value));
