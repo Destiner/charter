@@ -7,7 +7,7 @@
 					v-model="dataText"
 					type="text"
 				/>
-				<div>
+				<div v-if="data">
 					{{ data.header.length }} datasets, {{ data.values.length }} rows
 				</div>
 			</div>
