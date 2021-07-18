@@ -12,7 +12,7 @@
 import { PropType, defineComponent, toRefs, computed } from 'vue';
 import ApexChart from 'vue3-apexcharts';
 
-import { CSV } from '@/utils/csvParser';
+import { CSV } from '@/utils/csv';
 
 type Type = 'line' | 'area' | 'bar';
 

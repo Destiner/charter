@@ -4,7 +4,7 @@ export interface CSV {
 	timestamps: number[];
 }
 
-export function parseCSV(input: string): CSV | undefined {
+export function parse(input: string): CSV | undefined {
 	// Each row should have the same number of values, at least 2
 	// Each value should be a number (except for the first row)
 	// The first row of the dataset is header

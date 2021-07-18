@@ -114,7 +114,7 @@
 import { defineComponent, ref, computed } from 'vue';
 
 import Chart from '@/components/Chart.vue';
-import { parseCSV } from '@/utils/csvParser';
+import { parse as parseCSV } from '@/utils/csv';
 
 export default defineComponent({
 	components: {
