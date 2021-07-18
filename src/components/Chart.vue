@@ -135,20 +135,3 @@ export default defineComponent({
 	},
 });
 </script>
-
-<style>
-.apexcharts-text tspan,
-.apexcharts-yaxis-label tspan,
-.apexcharts-xaxis-label tspan {
-	fill: var(--text-secondary);
-}
-
-.apexcharts-gridline {
-	stroke: var(--text-secondary);
-	opacity: 0.15;
-}
-
-.apexcharts-legend-text {
-	color: var(--text-secondary) !important;
-}
-</style>
