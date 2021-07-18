@@ -98,7 +98,7 @@
 			<h2>Output</h2>
 			<Chart
 				v-if="data"
-				type="line"
+				:type="type"
 				:is-stacked="isStacked"
 				:is-normalized="isNormalized"
 				:data="data"
