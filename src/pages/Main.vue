@@ -1,8 +1,9 @@
 <template>
 	<div class="page">
 		<div class="input">
+			<h2>Input</h2>
 			<div>
-				<h2>Data</h2>
+				<h3>Data</h3>
 				<textarea
 					v-model="dataText"
 					type="text"
@@ -13,7 +14,7 @@
 				</div>
 			</div>
 			<div>
-				<h2>Chart Type</h2>
+				<h3>Chart Type</h3>
 				<div class="chart-types">
 					<div>
 						<input
@@ -66,7 +67,7 @@
 				</div>
 			</div>
 			<div>
-				<h2>Color Scheme</h2>
+				<h3>Color Scheme</h3>
 				<div>
 					<div>
 						<input
@@ -100,10 +101,34 @@
 		</div>
 		<div class="output">
 			<h2>Output</h2>
+			<div>
+				<h3>Aspect ratio</h3>
+				<div>
+					<div>
+						<input
+							v-model="ratio"
+							type="radio"
+							name="ratio"
+							value="normal"
+						>
+						<label for="normal">Normal</label>
+					</div>
+					<div>
+						<input
+							v-model="ratio"
+							type="radio"
+							name="ratio"
+							value="wide"
+						>
+						<label for="wide">Wide</label>
+					</div>
+				</div>
+			</div>
 			<Chart
 				v-if="data"
 				:type="type"
 				:colors="colors"
+				:ratio="ratio"
 				:is-stacked="isStacked"
 				:is-normalized="isNormalized"
 				:data="data"
@@ -134,6 +159,7 @@ export default defineComponent({
 		const isNormalized = ref(false);
 
 		const colors = ref('forest');
+		const ratio = ref('normal');
 
 		return {
 			dataText,
@@ -144,6 +170,7 @@ export default defineComponent({
 			isNormalized,
 
 			colors,
+			ratio,
 		};
 	},
 });
