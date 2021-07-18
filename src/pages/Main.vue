@@ -103,6 +103,9 @@
 				:is-normalized="isNormalized"
 				:data="data"
 			/>
+			<div v-else>
+				Insert formatted data to see the chart
+			</div>
 		</div>
 	</div>
 </template>
