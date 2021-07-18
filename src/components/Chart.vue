@@ -118,8 +118,6 @@ export default defineComponent({
 			const valueFormat = new Intl.NumberFormat('en-US', {
 				// @ts-ignore
 				notation: 'compact',
-				style: 'currency',
-				currency: 'usd',
 				minimumFractionDigits: 0,
 				maximumFractionDigits: 1,
 			});
