@@ -1,7 +1,7 @@
 <template>
 	<ApexChart
 		width="100%"
-		height="100%"
+		:height="height"
 		:type="type"
 		:options="options"
 		:series="series"
@@ -17,6 +17,7 @@ import { CSV } from '@/utils/csv';
 
 type Type = 'line' | 'area' | 'bar';
 type ColorScheme = 'forest' | 'ocean' | 'volcano';
+type AspectRatio = 'normal' | 'wide';
 
 export default defineComponent({
 	components: {
@@ -30,6 +31,10 @@ export default defineComponent({
 		colors: {
 			type: String as PropType<ColorScheme>,
 			default: 'forest',
+		},
+		ratio: {
+			type: String as PropType<AspectRatio>,
+			default: 'normal',
 		},
 		isStacked: {
 			type: Boolean,
@@ -45,7 +50,14 @@ export default defineComponent({
 		},
 	},
 	setup(props) {
-		const { type, colors, isStacked, isNormalized, data } = toRefs(props);
+		const { type, colors, ratio, isStacked, isNormalized, data } = toRefs(props);
+
+		const height = computed(() => {
+			if (ratio.value === 'wide') {
+				return '60%';
+			}
+			return '100%';
+		});
 
 		const series = computed(() => {
 			const totals = data.value.values.reduce((totals, a) => {
@@ -151,6 +163,7 @@ export default defineComponent({
 		}
 
 		return {
+			height,
 			series,
 			options,
 		};
