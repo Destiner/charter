@@ -12,7 +12,35 @@
 			</div>
 			<div>
 				<h2>Chart Type</h2>
-				<div class="chart-types" />
+				<div class="chart-types">
+					<div>
+						<input
+							v-model="type"
+							type="radio"
+							name="type"
+							value="line"
+						>
+						<label for="line">Line</label>
+					</div>
+					<div>
+						<input
+							v-model="type"
+							type="radio"
+							name="type"
+							value="area"
+						>
+						<label for="area">Area</label>
+					</div>
+					<div>
+						<input
+							v-model="type"
+							type="radio"
+							name="type"
+							value="bar"
+						>
+						<label for="bar">Bar</label>
+					</div>
+				</div>
 				<div class="chart-modifiers">
 					<div>
 						<input
@@ -34,6 +62,35 @@
 			</div>
 			<div>
 				<h2>Color Scheme</h2>
+				<div>
+					<div>
+						<input
+							v-model="colors"
+							type="radio"
+							name="colors"
+							value="forest"
+						>
+						<label for="forest">Forest</label>
+					</div>
+					<div>
+						<input
+							v-model="colors"
+							type="radio"
+							name="colors"
+							value="ocean"
+						>
+						<label for="ocean">Ocean</label>
+					</div>
+					<div>
+						<input
+							v-model="colors"
+							type="radio"
+							name="colors"
+							value="volcano"
+						>
+						<label for="volcano">Volcano</label>
+					</div>
+				</div>
 			</div>
 		</div>
 		<div class="output">
@@ -47,12 +104,16 @@ import { defineComponent, ref } from 'vue';
 
 export default defineComponent({
 	setup() {
+		const type = ref('line');
 		const isStacked = ref(false);
 		const isNormalized = ref(false);
+		const colors = ref('forest');
 
 		return {
+			type,
 			isStacked,
 			isNormalized,
+			colors,
 		};
 	},
 });
@@ -66,5 +127,9 @@ export default defineComponent({
 
 .input, .output {
 	flex: 1;
+}
+
+.chart-modifiers {
+	margin-top: 8px;
 }
 </style>
