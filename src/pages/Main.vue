@@ -3,12 +3,13 @@
 		<div class="input">
 			<div>
 				<h2>Data</h2>
-				<label for="data">Choose data source:</label>
-				<input 
-					type="file" 
-					name="data" 
-					accept="text/csv"
-				>
+				<textarea
+					v-model="dataText"
+					type="text"
+				/>
+				<div>
+					{{ data.header.length }} datasets, {{ data.values.length }} rows
+				</div>
 			</div>
 			<div>
 				<h2>Chart Type</h2>
@@ -100,19 +101,29 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from 'vue';
+import { defineComponent, ref, computed } from 'vue';
+
+import { parseCSV } from '@/utils/csvParser';
 
 export default defineComponent({
 	setup() {
+		const dataText = ref('');
+		const data = computed(() => parseCSV(dataText.value));
+
 		const type = ref('line');
 		const isStacked = ref(false);
 		const isNormalized = ref(false);
+
 		const colors = ref('forest');
 
 		return {
+			dataText,
+			data,
+
 			type,
 			isStacked,
 			isNormalized,
+
 			colors,
 		};
 	},
