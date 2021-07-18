@@ -108,6 +108,7 @@ export default defineComponent({
 					max: isNormalized.value ? 1 : undefined,
 				},
 				legend: {
+					position: 'top',
 					onItemHover: {
 						highlightDataSeries: false,
 					},
