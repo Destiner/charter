@@ -6,6 +6,7 @@
 				<textarea
 					v-model="dataText"
 					type="text"
+					:disabled="!type"
 				/>
 				<div v-if="data">
 					{{ data.ids.length }} datasets, {{ data.values.length }} rows
@@ -20,6 +21,7 @@
 							type="radio"
 							name="type"
 							value="line"
+							:disabled="!!type"
 						>
 						<label for="line">Line</label>
 					</div>
@@ -29,6 +31,7 @@
 							type="radio"
 							name="type"
 							value="area"
+							:disabled="!!type"
 						>
 						<label for="area">Area</label>
 					</div>
@@ -38,6 +41,7 @@
 							type="radio"
 							name="type"
 							value="bar"
+							:disabled="!!type"
 						>
 						<label for="bar">Bar</label>
 					</div>
@@ -124,7 +128,7 @@ export default defineComponent({
 		const dataText = ref('');
 		const data = computed(() => parseCSV(dataText.value));
 
-		const type = ref('line');
+		const type = ref('');
 		const isStacked = ref(false);
 		const isNormalized = ref(false);
 
