@@ -103,6 +103,7 @@
 			<Chart
 				v-if="data"
 				:type="type"
+				:colors="colors"
 				:is-stacked="isStacked"
 				:is-normalized="isNormalized"
 				:data="data"

@@ -9,12 +9,14 @@
 </template>
 
 <script lang="ts">
+import interpolate from 'color-interpolate';
 import { PropType, defineComponent, toRefs, computed } from 'vue';
 import ApexChart from 'vue3-apexcharts';
 
 import { CSV } from '@/utils/csv';
 
 type Type = 'line' | 'area' | 'bar';
+type ColorScheme = 'forest' | 'ocean' | 'volcano';
 
 export default defineComponent({
 	components: {
@@ -24,6 +26,10 @@ export default defineComponent({
 		type: {
 			type: String as PropType<Type>,
 			default: 'bar',
+		},
+		colors: {
+			type: String as PropType<ColorScheme>,
+			default: 'forest',
 		},
 		isStacked: {
 			type: Boolean,
@@ -39,7 +45,7 @@ export default defineComponent({
 		},
 	},
 	setup(props) {
-		const { type, isStacked, isNormalized, data } = toRefs(props);
+		const { type, colors, isStacked, isNormalized, data } = toRefs(props);
 
 		const series = computed(() => {
 			const totals = data.value.values.reduce((totals, a) => {
@@ -94,6 +100,7 @@ export default defineComponent({
 						highlightDataSeries: false,
 					},
 				},
+				colors: getColors(colors.value, data.value.ids.length),
 				dataLabels: {
 					enabled: false,
 				},
@@ -126,6 +133,23 @@ export default defineComponent({
 				maximumFractionDigits: 2,
 			});
 			return valueFormat.format(value);
+		}
+
+		function getColors(scheme: ColorScheme, count: number): string[] {
+			const paletteMap: Record<ColorScheme, [string, string]> = {
+				'forest': ['#f8fcf6', '#194220'],
+				'ocean': ['#f8fbff', '#152f67'],
+				'volcano': ['#fdf5ec', '#752d13'],
+			};
+
+			const palette = interpolate(paletteMap[scheme]);
+			const colors = [];
+			for (let i = 0; i < count; i++) {
+				const color = palette((i + 1) / (count + 1));
+				colors.push(color);
+			}
+			console.log(scheme, count, palette, colors);
+			return colors;
 		}
 
 		return {
