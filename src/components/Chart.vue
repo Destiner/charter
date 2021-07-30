@@ -60,12 +60,7 @@ export default defineComponent({
 		});
 
 		const series = computed(() => {
-			const totals = data.value.values.reduce((totals, a) => {
-				return a.map((value, index) => {
-					const total = totals[index] || 0;
-					return total + value;
-				});
-			}, new Array<number>(data.value.timestamps.length));
+			const totals = data.value.values.map(values => values.reduce((total, value) => total + value));
 			const series = data.value.ids.map((name, index) => {
 				const values = data.value.values.map(a => a[index]);
 				return {
@@ -159,7 +154,6 @@ export default defineComponent({
 				const color = palette((i + 1) / (count + 1));
 				colors.push(color);
 			}
-			console.log(scheme, count, palette, colors);
 			return colors;
 		}
 
