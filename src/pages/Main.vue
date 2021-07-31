@@ -6,7 +6,6 @@
 				<textarea
 					v-model="dataText"
 					type="text"
-					:disabled="!type"
 				/>
 				<div v-if="data">
 					{{ data.ids.length }} datasets, {{ data.values.length }} rows
