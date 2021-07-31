@@ -12,7 +12,6 @@ body {
 </style>
 
 <!--
-* fix normalized charts
 * datatype (numeric, currency, percentage)
 * chart bg
 * custom color schemes
