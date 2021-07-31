@@ -101,7 +101,7 @@
 		</div>
 		<div class="output">
 			<h2>Output</h2>
-			<div>
+			<div class="output-options">
 				<h3>Aspect ratio</h3>
 				<div>
 					<div>
@@ -184,6 +184,10 @@ export default defineComponent({
 
 .input, .output {
 	flex: 1;
+}
+
+.output-options {
+	margin-bottom: 16px;
 }
 
 .chart-modifiers {
