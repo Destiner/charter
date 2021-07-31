@@ -134,7 +134,7 @@
 				:data="data"
 			/>
 			<div v-else>
-				Insert formatted data to see the chart
+				Insert data to see the chart
 			</div>
 		</div>
 	</div>
