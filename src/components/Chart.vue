@@ -60,14 +60,20 @@ export default defineComponent({
 
 		const series = computed(() => {
 			const totals = data.value.values.map(values => values.reduce((total, value) => total + value));
+			const max = data.value.values.reduce((max, value) => {
+				const seriesMax = value.reduce((max, value) => max > value ? max : value);
+				return seriesMax > max ? seriesMax : max;
+			}, 0);
 			const series = data.value.ids.map((name, index) => {
 				const values = data.value.values.map(a => a[index]);
 				return {
 					name,
 					type: type.value,
-					data: isNormalized.value
-						? values.map((value, index) => value / totals[index])
-						: values,
+					data: !isNormalized.value
+						? values
+						: isStacked.value
+							? values.map((value, index) => value / totals[index])
+							: values.map((value) => value / max),
 				};
 			});
 			return series;
