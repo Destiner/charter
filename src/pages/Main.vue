@@ -21,7 +21,6 @@
 							type="radio"
 							name="type"
 							value="line"
-							:disabled="!!type"
 						>
 						<label for="line">Line</label>
 					</div>
@@ -31,7 +30,6 @@
 							type="radio"
 							name="type"
 							value="area"
-							:disabled="!!type"
 						>
 						<label for="area">Area</label>
 					</div>
@@ -41,7 +39,6 @@
 							type="radio"
 							name="type"
 							value="bar"
-							:disabled="!!type"
 						>
 						<label for="bar">Bar</label>
 					</div>
@@ -122,15 +119,16 @@
 			</div>
 		</div>
 		<div class="output">
-			<Chart
-				v-if="data"
-				:type="type"
-				:colors="colors"
-				:ratio="ratio"
-				:is-stacked="isStacked"
-				:is-normalized="isNormalized"
-				:data="data"
-			/>
+			<div v-if="data">
+				<Chart
+					:type="type"
+					:colors="colors"
+					:ratio="ratio"
+					:is-stacked="isStacked"
+					:is-normalized="isNormalized"
+					:data="data"
+				/>
+			</div>
 			<div v-else>
 				Insert data to see the chart
 			</div>

@@ -2,7 +2,6 @@
 	<ApexChart
 		width="100%"
 		:height="height"
-		:type="type"
 		:options="options"
 		:series="series"
 	/>
@@ -65,6 +64,7 @@ export default defineComponent({
 				const values = data.value.values.map(a => a[index]);
 				return {
 					name,
+					type: type.value,
 					data: isNormalized.value
 						? values.map((value, index) => value / totals[index])
 						: values,
@@ -77,7 +77,6 @@ export default defineComponent({
 			return {
 				chart: {
 					id: 'chart',
-					type: type.value,
 					stacked: isStacked.value,
 					stackType: 'normal',
 					toolbar: {
