@@ -149,7 +149,7 @@ export default defineComponent({
 		const dataText = ref('');
 		const data = computed(() => parseCSV(dataText.value));
 
-		const type = ref('');
+		const type = ref('line');
 		const isStacked = ref(false);
 		const isNormalized = ref(false);
 
