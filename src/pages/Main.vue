@@ -1,9 +1,8 @@
 <template>
 	<div class="page">
 		<div class="input">
-			<h2>Input</h2>
 			<div>
-				<h3>Data</h3>
+				<h2>Data</h2>
 				<textarea
 					v-model="dataText"
 					type="text"
@@ -14,7 +13,7 @@
 				</div>
 			</div>
 			<div>
-				<h3>Chart Type</h3>
+				<h2>Chart Type</h2>
 				<div class="chart-types">
 					<div>
 						<input
@@ -67,7 +66,7 @@
 				</div>
 			</div>
 			<div>
-				<h3>Color Scheme</h3>
+				<h2>Color Scheme</h2>
 				<div>
 					<div>
 						<input
@@ -99,7 +98,7 @@
 				</div>
 			</div>
 			<div>
-				<h3>Aspect ratio</h3>
+				<h2>Aspect ratio</h2>
 				<div>
 					<div>
 						<input
@@ -123,7 +122,6 @@
 			</div>
 		</div>
 		<div class="output">
-			<h2>Output</h2>
 			<Chart
 				v-if="data"
 				:type="type"
