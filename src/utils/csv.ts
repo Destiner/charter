@@ -13,7 +13,7 @@ export function parse(input: string): CSV | undefined {
 		return;
 	}
 	const rows = input.split('\n');
-	const tokens = rows.map((row) => row.split(','));
+	const tokens = rows.filter((row) => !!row).map((row) => row.split(','));
 	const columnCount = tokens.map((row) => row.length);
 	const areColumnsBalanced = columnCount.every((n) => n === columnCount[0]);
 	if (!areColumnsBalanced) {
