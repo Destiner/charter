@@ -4,6 +4,16 @@ export interface CSV {
 	timestamps: number[];
 }
 
+export const SAMPLE = `Timestamp,Apples,Oranges,Grapes,Mangos
+1626048000,10,23,13,8
+1626134400,11,21,14,8
+1626220800,14,22,15,9
+1626307200,19,24,16,8
+1626393600,24,25,17,7
+1626480000,30,27,18,8
+1626566400,38,30,19,8
+`;
+
 export function parse(input: string): CSV | undefined {
 	// Each row should have the same number of values, at least 2
 	// Each value should be a number (except for the first row)

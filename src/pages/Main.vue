@@ -139,14 +139,14 @@
 import { defineComponent, ref, computed } from 'vue';
 
 import Chart from '@/components/Chart.vue';
-import { parse as parseCSV } from '@/utils/csv';
+import { SAMPLE, parse as parseCSV } from '@/utils/csv';
 
 export default defineComponent({
 	components: {
 		Chart,
 	},
 	setup() {
-		const dataText = ref('');
+		const dataText = ref(SAMPLE);
 		const data = computed(() => parseCSV(dataText.value));
 
 		const type = ref('line');
