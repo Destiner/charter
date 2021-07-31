@@ -98,10 +98,7 @@
 					</div>
 				</div>
 			</div>
-		</div>
-		<div class="output">
-			<h2>Output</h2>
-			<div class="output-options">
+			<div>
 				<h3>Aspect ratio</h3>
 				<div>
 					<div>
@@ -124,6 +121,9 @@
 					</div>
 				</div>
 			</div>
+		</div>
+		<div class="output">
+			<h2>Output</h2>
 			<Chart
 				v-if="data"
 				:type="type"
@@ -184,10 +184,6 @@ export default defineComponent({
 
 .input, .output {
 	flex: 1;
-}
-
-.output-options {
-	margin-bottom: 16px;
 }
 
 .chart-modifiers {
