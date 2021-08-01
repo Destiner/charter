@@ -42,36 +42,12 @@
 				</div>
 			</div>
 			<div>
-				<h2>Data type</h2>
-				<div class="data-types">
-					<div>
-						<input
-							v-model="format"
-							type="radio"
-							name="format"
-							value="number"
-						>
-						<label for="number">Number</label>
-					</div>
-					<div>
-						<input
-							v-model="format"
-							type="radio"
-							name="format"
-							value="currency"
-						>
-						<label for="currency">Currency</label>
-					</div>
-					<div>
-						<input
-							v-model="format"
-							type="radio"
-							name="format"
-							value="percentage"
-						>
-						<label for="percentage">Percentage</label>
-					</div>
-				</div>
+				<Options
+					v-model="format"
+					title="Chart format"
+					group="format"
+					:options="formats"
+				/>
 			</div>
 			<div>
 				<h2>Color Scheme</h2>
@@ -166,6 +142,17 @@ const types = [{
 	name: 'Bar',
 }];
 
+const formats = [{
+	id: 'number',
+	name: 'Number',
+}, {
+	id: 'currency',
+	name: 'Currency',
+}, {
+	id: 'percentage',
+	name: 'Percentage',
+}];
+
 export default defineComponent({
 	components: {
 		Chart,
@@ -187,12 +174,13 @@ export default defineComponent({
 			dataText,
 			data,
 
-			format,
-
 			types,
 			type,
 			isStacked,
 			isNormalized,
+
+			formats,
+			format,
 
 			colors,
 			ratio,
