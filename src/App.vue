@@ -35,10 +35,7 @@ body {
 </style>
 
 <!--
-* ui
-* darkmode
 * custom color schemes
-
 * multiple data types
 * export as svg/png
 * mobile ready
