@@ -173,6 +173,8 @@ textarea {
 	border: 2px solid var(--border-normal);
 	border-radius: var(--border-radius);
 	outline: none;
+	background: var(--bg-primary);
+	color: var(--text-primary);
 	font-size: 12px;
 }
 
