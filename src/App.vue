@@ -7,7 +7,7 @@
 <style>
 :root {
 	--text-primary: #1f2937;
-	--border-normal: #f3f4f6;
+	--border-normal: #e5e7eb;
 	--border-selected: #93c5fd;
 	--border-focused: #3b82f6;
 	--border-radius: 16px;
