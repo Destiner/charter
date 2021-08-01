@@ -16,18 +16,18 @@
 					group="type"
 					:options="types"
 				/>
-				<div>
-					<Modifier
-						v-model="isStacked"
-						:label="'Stacked'"
-						class="modifier"
-					/>
-					<Modifier
-						v-model="isNormalized"
-						:label="'Normalized'"
-						class="modifier"
-					/>
-				</div>
+			</div>
+			<div class="modifiers">
+				<Modifier
+					v-model="isStacked"
+					:label="'Stacked'"
+					class="modifier"
+				/>
+				<Modifier
+					v-model="isNormalized"
+					:label="'Normalized'"
+					class="modifier"
+				/>
 			</div>
 			<div class="options">
 				<Options
@@ -186,9 +186,12 @@ textarea:focus {
 	flex: 1;
 }
 
-.data,
 .options {
-	margin-bottom: 16px;
+	margin-top: 16px;
+}
+
+.modifiers {
+	margin-top: 8px;
 }
 
 .modifier {
