@@ -53,27 +53,12 @@
 				/>
 			</div>
 			<div class="options">
-				<h2>Aspect ratio</h2>
-				<div>
-					<div>
-						<input
-							v-model="ratio"
-							type="radio"
-							name="ratio"
-							value="normal"
-						>
-						<label for="normal">Normal</label>
-					</div>
-					<div>
-						<input
-							v-model="ratio"
-							type="radio"
-							name="ratio"
-							value="wide"
-						>
-						<label for="wide">Wide</label>
-					</div>
-				</div>
+				<Options
+					v-model="ratio"
+					title="Aspect ratio"
+					group="ratio"
+					:options="ratios"
+				/>
 			</div>
 		</div>
 		<div class="output">
@@ -135,6 +120,14 @@ const colorSchemes = [{
 	name: 'Volcano',
 }];
 
+const ratios = [{
+	id: 'normal',
+	name: 'Normal',
+}, {
+	id: 'wide',
+	name: 'Wide',
+}];
+
 export default defineComponent({
 	components: {
 		Chart,
@@ -167,6 +160,7 @@ export default defineComponent({
 			colorSchemes,
 			colorScheme,
 
+			ratios,
 			ratio,
 		};
 	},
