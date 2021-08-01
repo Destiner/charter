@@ -2,7 +2,6 @@
 	<div class="page">
 		<div class="input">
 			<div class="data">
-				<h2>Data</h2>
 				<textarea
 					v-model="dataText"
 					type="text"
