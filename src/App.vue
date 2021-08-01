@@ -12,7 +12,6 @@ body {
 </style>
 
 <!--
-* datatype (numeric, currency, percentage)
 * ui
 * darkmode
 * custom color schemes
