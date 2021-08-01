@@ -51,6 +51,7 @@ export default defineComponent({
 	border: 2px solid var(--border-normal);
 	border-radius: var(--border-radius);
 	background: transparent;
+	color: var(--text-primary);
 	font-size: 16px;
 }
 
