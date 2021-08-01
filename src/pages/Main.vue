@@ -13,7 +13,7 @@
 			<div class="options">
 				<Options
 					v-model="type"
-					title="Chart types"
+					title="Type"
 					group="type"
 					:options="types"
 				/>
@@ -39,7 +39,7 @@
 			<div class="options">
 				<Options
 					v-model="format"
-					title="Chart format"
+					title="Format"
 					group="format"
 					:options="formats"
 				/>
