@@ -1,34 +1,35 @@
 <template>
 	<RadioGroup
 		:model-value="modelValue"
-		class="options"
 		@update:model-value="setOption"
 	>
-		<RadioGroupLabel class="sr-only">
-			{{ title }}
+		<RadioGroupLabel>
+			<span class="title">{{ title }}</span>
 		</RadioGroupLabel>
-		<RadioGroupOption
-			v-for="option in options"
-			v-slot="{ active, checked }"
-			:key="option.id"
-			:value="option.id"
-			class="option"
-		>
-			<div
-				class="body"
-				:class="{ active, checked }"
+		<div class="options">
+			<RadioGroupOption
+				v-for="option in options"
+				v-slot="{ active, checked }"
+				:key="option.id"
+				:value="option.id"
+				class="option"
 			>
-				<div class="imagery">
-					<OptionImage
-						:group="group"
-						:value="option.id"
-					/>
+				<div
+					class="body"
+					:class="{ active, checked }"
+				>
+					<div class="imagery">
+						<OptionImage
+							:group="group"
+							:value="option.id"
+						/>
+					</div>
+					<div class="name">
+						{{ option.name }}
+					</div>
 				</div>
-				<div class="name">
-					{{ option.name }}
-				</div>
-			</div>
-		</RadioGroupOption>
+			</RadioGroupOption>
+		</div>
 	</RadioGroup>
 </template>
 
@@ -82,8 +83,13 @@ export default defineComponent({
 </script>
 
 <style scoped>
+.title {
+	color: var(--text-secondary);
+}
+
 .options {
 	display: flex;
+	margin-top: 4px;
 }
 
 .option {
