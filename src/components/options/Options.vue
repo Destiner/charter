@@ -18,13 +18,19 @@
 					class="body"
 					:class="{ active, checked }"
 				>
-					<div class="imagery">
+					<div
+						class="imagery"
+						:class="{ wide: compact }"
+					>
 						<OptionImage
 							:group="group"
 							:value="option.id"
 						/>
 					</div>
-					<div class="name">
+					<div
+						v-if="!compact"
+						class="name"
+					>
 						{{ option.name }}
 					</div>
 				</div>
@@ -67,6 +73,10 @@ export default defineComponent({
 		modelValue: {
 			type: String,
 			required: true,
+		},
+		compact: {
+			type: Boolean,
+			default: false,
 		},
 	},
 	emits: ['update:modelValue'],
@@ -115,6 +125,10 @@ export default defineComponent({
 	height: 64px;
 	border-radius: 14px 14px 0 0;
 	filter: grayscale(0.75);
+}
+
+.imagery.wide {
+	height: 32px;
 }
 
 .body.checked > .imagery {
