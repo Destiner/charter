@@ -103,13 +103,21 @@ export default defineComponent({
 }
 
 .option {
-	margin-right: 16px;
 	outline: none;
 }
 
 .body {
 	border: 2px solid var(--border-normal);
-	border-radius: var(--border-radius);
+}
+
+.option:first-child > .body {
+	border-top-left-radius: var(--border-radius);
+	border-bottom-left-radius: var(--border-radius);
+}
+
+.option:last-child > .body {
+	border-top-right-radius: var(--border-radius);
+	border-bottom-right-radius: var(--border-radius);
 }
 
 .body.checked {
@@ -139,17 +147,5 @@ export default defineComponent({
 	margin: 2px 0;
 	font-size: 14px;
 	text-align: center;
-}
-
-.sr-only {
-	position: absolute;
-	width: 1px;
-	height: 1px;
-	margin: -1px;
-	padding: 0;
-	overflow: hidden;
-	clip: rect(0, 0, 0, 0);
-	border-width: 0;
-	white-space: nowrap;
 }
 </style>
