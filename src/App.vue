@@ -15,6 +15,17 @@
 	--border-radius: 16px;
 }
 
+@media (prefers-color-scheme: dark) {
+	:root {
+		--text-primary: #F3F4F6;
+		--text-secondary: #E5E7EB;
+		--bg-primary: #1F2937;
+		--border-normal: #1E3A8A;
+		--border-selected: #2563EB;
+		--border-focused: #60A5FA;
+	}
+}
+
 body {
 	margin: 0;
 	background: var(--bg-primary);
