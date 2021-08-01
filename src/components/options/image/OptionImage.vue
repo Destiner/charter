@@ -1,4 +1,8 @@
 <template>
+	<OptionImageColor
+		v-if="group === 'color'"
+		:value="value"
+	/>
 	<OptionImageFormat
 		v-if="group === 'format'"
 		:value="value"
@@ -12,11 +16,13 @@
 <script lang="ts">
 import { defineComponent } from 'vue';
 
+import OptionImageColor from './OptionImageColor.vue';
 import OptionImageFormat from './OptionImageFormat.vue';
 import OptionImageType from './OptionImageType.vue';
 
 export default defineComponent({
 	components: {
+		OptionImageColor,
 		OptionImageFormat,
 		OptionImageType,
 	},
