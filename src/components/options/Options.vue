@@ -116,6 +116,7 @@ export default defineComponent({
 }
 
 .name {
+	margin: 2px 0;
 	font-size: 14px;
 	text-align: center;
 }
