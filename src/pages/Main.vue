@@ -133,12 +133,14 @@ export default defineComponent({
 		const dataText = ref(SAMPLE);
 		const data = computed(() => parseCSV(dataText.value));
 
-		const format = ref('number');
 		const type = ref('line');
 		const isStacked = ref(false);
 		const isNormalized = ref(false);
 
+		const format = ref('number');
+
 		const colorScheme = ref('forest');
+
 		const ratio = ref('normal');
 
 		return {
