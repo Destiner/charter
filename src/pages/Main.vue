@@ -14,36 +14,14 @@
 				</div>
 			</div>
 			<div>
-				<h2>Chart Type</h2>
-				<div class="chart-types">
-					<div>
-						<input
-							v-model="type"
-							type="radio"
-							name="type"
-							value="line"
-						>
-						<label for="line">Line</label>
-					</div>
-					<div>
-						<input
-							v-model="type"
-							type="radio"
-							name="type"
-							value="area"
-						>
-						<label for="area">Area</label>
-					</div>
-					<div>
-						<input
-							v-model="type"
-							type="radio"
-							name="type"
-							value="bar"
-						>
-						<label for="bar">Bar</label>
-					</div>
-				</div>
+				<Options
+					v-model="type"
+					title="Chart types"
+					group="type"
+					:options="types"
+				/>
+			</div>
+			<div>
 				<div class="chart-modifiers">
 					<div>
 						<input
@@ -174,11 +152,24 @@
 import { defineComponent, ref, computed } from 'vue';
 
 import Chart from '@/components/Chart.vue';
+import Options from '@/components/options/Options.vue';
 import { SAMPLE, parse as parseCSV } from '@/utils/csv';
+
+const types = [{
+	id: 'line',
+	name: 'Line',
+}, {
+	id: 'area',
+	name: 'Area',
+}, {
+	id: 'bar',
+	name: 'Bar',
+}];
 
 export default defineComponent({
 	components: {
 		Chart,
+		Options,
 	},
 	setup() {
 		const dataText = ref(SAMPLE);
@@ -197,6 +188,8 @@ export default defineComponent({
 			data,
 
 			dataType,
+
+			types,
 			type,
 			isStacked,
 			isNormalized,
