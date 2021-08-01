@@ -1,7 +1,7 @@
 <template>
 	<div class="page">
 		<div class="input">
-			<div>
+			<div class="data">
 				<h2>Data</h2>
 				<textarea
 					v-model="dataText"
@@ -10,16 +10,14 @@
 					cols="40"
 				/>
 			</div>
-			<div>
+			<div class="options">
 				<Options
 					v-model="type"
 					title="Chart types"
 					group="type"
 					:options="types"
 				/>
-			</div>
-			<div>
-				<div class="chart-modifiers">
+				<div>
 					<div>
 						<input
 							v-model="isStacked"
@@ -38,7 +36,7 @@
 					</div>
 				</div>
 			</div>
-			<div>
+			<div class="options">
 				<Options
 					v-model="format"
 					title="Chart format"
@@ -46,7 +44,7 @@
 					:options="formats"
 				/>
 			</div>
-			<div>
+			<div class="options">
 				<h2>Color Scheme</h2>
 				<div>
 					<div>
@@ -78,7 +76,7 @@
 					</div>
 				</div>
 			</div>
-			<div>
+			<div class="options">
 				<h2>Aspect ratio</h2>
 				<div>
 					<div>
@@ -196,7 +194,8 @@ export default defineComponent({
 	flex: 1;
 }
 
-.chart-modifiers {
-	margin-top: 8px;
+.data,
+.options {
+	margin-bottom: 16px;
 }
 </style>
