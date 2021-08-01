@@ -15,6 +15,7 @@ import ApexChart from 'vue3-apexcharts';
 import { CSV } from '@/utils/csv';
 
 type Type = 'line' | 'area' | 'bar';
+type DataType = 'number' | 'currency' | 'percentage';
 type ColorScheme = 'forest' | 'ocean' | 'volcano';
 type AspectRatio = 'normal' | 'wide';
 
@@ -26,6 +27,10 @@ export default defineComponent({
 		type: {
 			type: String as PropType<Type>,
 			default: 'bar',
+		},
+		dataType: {
+			type: String as PropType<DataType>,
+			default: 'number',
 		},
 		colors: {
 			type: String as PropType<ColorScheme>,
@@ -49,7 +54,7 @@ export default defineComponent({
 		},
 	},
 	setup(props) {
-		const { type, colors, ratio, isStacked, isNormalized, data } = toRefs(props);
+		const { type, dataType, colors, ratio, isStacked, isNormalized, data } = toRefs(props);
 
 		const height = computed(() => {
 			if (ratio.value === 'wide') {
@@ -102,7 +107,7 @@ export default defineComponent({
 				},
 				yaxis: {
 					labels: {
-						formatter: isNormalized.value ? formatShare : formatValue,
+						formatter: getFormatter(dataType.value, isNormalized.value),
 					},
 					min: isNormalized.value ? 0 : undefined,
 					max: isNormalized.value ? 1 : undefined,
@@ -127,23 +132,51 @@ export default defineComponent({
 			};
 		});
 
-		function formatValue(value: number) {
-			const valueFormat = new Intl.NumberFormat('en-US', {
-				// @ts-ignore
-				notation: 'compact',
-				minimumFractionDigits: 0,
-				maximumFractionDigits: 1,
-			});
-			return valueFormat.format(value);
-		}
+		function getFormatter(type: DataType, isNormalized: boolean) {
+			function formatNumber(value: number) {
+				const valueFormat = new Intl.NumberFormat('en-US', {
+					// @ts-ignore
+					notation: 'compact',
+					minimumFractionDigits: 0,
+					maximumFractionDigits: 1,
+				});
+				return valueFormat.format(value);
+			}
 
-		function formatShare(value: number) {
-			const valueFormat = new Intl.NumberFormat('en-US', {
-				style: 'percent',
-				minimumFractionDigits: 1,
-				maximumFractionDigits: 2,
-			});
-			return valueFormat.format(value);
+			function formatShare(value: number) {
+				const valueFormat = new Intl.NumberFormat('en-US', {
+					style: 'percent',
+					minimumFractionDigits: 1,
+					maximumFractionDigits: 2,
+				});
+				return valueFormat.format(value);
+			}
+
+			function formatCurrency(value: number) {
+				const valueFormat = new Intl.NumberFormat('en-US', {
+					// @ts-ignore
+					notation: 'compact',
+					style: 'currency',
+					currency: 'usd',
+					minimumFractionDigits: 0,
+					maximumFractionDigits: 1,
+				});
+				return valueFormat.format(value);
+			}
+
+			if (isNormalized) {
+				return formatShare;
+			}
+			if (type === 'number') {
+				return formatNumber;
+			}
+			if (type === 'percentage') {
+				return formatShare;
+			}
+			if (type === 'currency') {
+				return formatCurrency;
+			}
+			return formatNumber;
 		}
 
 		function getColors(scheme: ColorScheme, count: number): string[] {
