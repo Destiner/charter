@@ -203,3 +203,33 @@ export default defineComponent({
 	},
 });
 </script>
+
+<style>
+.apexcharts-text tspan,
+.apexcharts-yaxis-label tspan,
+.apexcharts-xaxis-label tspan {
+	fill: var(--text-secondary);
+}
+
+.apexcharts-gridline {
+	stroke: var(--text-secondary);
+	opacity: 0.15;
+}
+
+.apexcharts-legend-text {
+	color: var(--text-secondary) !important;
+}
+
+.apexcharts-tooltip {
+	width: 160px;
+	border: none !important;
+	background: var(--bg-primary) !important;
+	box-shadow: 0 4px 4px rgba(0, 0, 0, 0.2);
+	color: var(--text-primary) !important;
+}
+
+.apexcharts-tooltip-title {
+	background: var(--bg-primary) !important;
+	color: var(--text-secondary) !important;
+}
+</style>
