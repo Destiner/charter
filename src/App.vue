@@ -13,7 +13,8 @@ body {
 
 <!--
 * datatype (numeric, currency, percentage)
-* chart bg
+* ui
+* darkmode
 * custom color schemes
 
 * multiple data types
