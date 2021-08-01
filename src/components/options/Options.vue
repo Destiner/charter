@@ -18,7 +18,12 @@
 				class="body"
 				:class="{ active, checked }"
 			>
-				<div class="imagery" />
+				<div class="imagery">
+					<OptionImage
+						:group="group"
+						:value="option.id"
+					/>
+				</div>
 				<div class="name">
 					{{ option.name }}
 				</div>
@@ -31,6 +36,8 @@
 import { RadioGroup, RadioGroupLabel, RadioGroupOption } from '@headlessui/vue';
 import { PropType, defineComponent } from 'vue';
 
+import OptionImage from './image/OptionImage.vue';
+
 export interface Option {
 	id: string;
 	name: string;
@@ -38,11 +45,16 @@ export interface Option {
 
 export default defineComponent({
 	components: {
+		OptionImage,
 		RadioGroup,
 		RadioGroupLabel,
 		RadioGroupOption,
 	},
 	props: {
+		group: {
+			type: String,
+			default: '',
+		},
 		title: {
 			type: String,
 			default: '',
@@ -58,7 +70,7 @@ export default defineComponent({
 	},
 	emits: ['update:modelValue'],
 	setup(_props, { emit }) {
-		function setOption(id) {
+		function setOption(id: string) {
 			emit('update:modelValue', id);
 		}
 
