@@ -46,7 +46,7 @@ export default defineComponent({
 	position: relative;
 	align-items: center;
 	justify-content: center;
-	width: 128px;
+	width: 132px;
 	padding: 8px 0;
 	border: 2px solid var(--border-normal);
 	border-radius: var(--border-radius);
