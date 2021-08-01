@@ -8,6 +8,7 @@
 :root {
 	--text-primary: #1f2937;
 	--text-secondary: #4b5563;
+	--bg-primary: #fff;
 	--border-normal: #e5e7eb;
 	--border-selected: #93c5fd;
 	--border-focused: #3b82f6;
@@ -16,6 +17,7 @@
 
 body {
 	margin: 0;
+	background: var(--bg-primary);
 	color: var(--text-primary);
 	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', Helvetica, Arial, sans-serif;
 }
