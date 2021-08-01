@@ -43,6 +43,7 @@
 					title="Color scheme"
 					group="color"
 					:options="colorSchemes"
+					compact
 				/>
 			</div>
 			<div class="options">
