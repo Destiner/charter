@@ -18,22 +18,16 @@
 					:options="types"
 				/>
 				<div>
-					<div>
-						<input
-							v-model="isStacked"
-							type="checkbox"
-							name="stacked"
-						>
-						<label for="stacked">Stacked</label>
-					</div>
-					<div>
-						<input
-							v-model="isNormalized"
-							type="checkbox"
-							name="normalized"
-						>
-						<label for="normalized">Normalized</label>
-					</div>
+					<Modifier
+						v-model="isStacked"
+						:label="'Stacked'"
+						class="modifier"
+					/>
+					<Modifier
+						v-model="isNormalized"
+						:label="'Normalized'"
+						class="modifier"
+					/>
 				</div>
 			</div>
 			<div class="options">
@@ -84,6 +78,7 @@
 import { defineComponent, ref, computed } from 'vue';
 
 import Chart from '@/components/Chart.vue';
+import Modifier from '@/components/Modifier.vue';
 import Options from '@/components/options/Options.vue';
 import { SAMPLE, parse as parseCSV } from '@/utils/csv';
 
@@ -132,6 +127,7 @@ export default defineComponent({
 	components: {
 		Chart,
 		Options,
+		Modifier,
 	},
 	setup() {
 		const dataText = ref(SAMPLE);
@@ -180,5 +176,9 @@ export default defineComponent({
 .data,
 .options {
 	margin-bottom: 16px;
+}
+
+.modifier {
+	margin-right: 16px;
 }
 </style>
