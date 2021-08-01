@@ -1,5 +1,6 @@
 <template>
 	<RadioGroup
+		:disabled="disabled"
 		:model-value="modelValue"
 		@update:model-value="setOption"
 	>
@@ -75,6 +76,10 @@ export default defineComponent({
 			required: true,
 		},
 		compact: {
+			type: Boolean,
+			default: false,
+		},
+		disabled: {
 			type: Boolean,
 			default: false,
 		},
