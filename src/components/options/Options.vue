@@ -124,7 +124,7 @@ export default defineComponent({
 	width: 128px;
 	height: 64px;
 	border-radius: 14px 14px 0 0;
-	filter: grayscale(0.75);
+	filter: grayscale(0.65);
 }
 
 .imagery.wide {
