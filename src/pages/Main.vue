@@ -166,6 +166,18 @@ export default defineComponent({
 </script>
 
 <style scoped>
+textarea {
+	padding: 8px;
+	border: 2px solid #f3f4f6;
+	border-radius: 16px;
+	outline: none;
+	font-size: 12px;
+}
+
+textarea:focus {
+	border-color: #3b82f6;
+}
+
 .page {
 	display: flex;
 	margin: 32px 16px;
