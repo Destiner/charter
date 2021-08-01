@@ -36,6 +36,7 @@
 					group="format"
 					:options="formats"
 					compact
+					:disabled="isNormalized"
 				/>
 			</div>
 			<div class="options">
