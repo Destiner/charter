@@ -197,6 +197,6 @@ textarea:focus {
 }
 
 .modifier {
-	margin-right: 16px;
+	margin-right: 8px;
 }
 </style>
