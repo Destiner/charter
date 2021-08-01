@@ -45,36 +45,12 @@
 				/>
 			</div>
 			<div class="options">
-				<h2>Color Scheme</h2>
-				<div>
-					<div>
-						<input
-							v-model="colors"
-							type="radio"
-							name="colors"
-							value="forest"
-						>
-						<label for="forest">Forest</label>
-					</div>
-					<div>
-						<input
-							v-model="colors"
-							type="radio"
-							name="colors"
-							value="ocean"
-						>
-						<label for="ocean">Ocean</label>
-					</div>
-					<div>
-						<input
-							v-model="colors"
-							type="radio"
-							name="colors"
-							value="volcano"
-						>
-						<label for="volcano">Volcano</label>
-					</div>
-				</div>
+				<Options
+					v-model="colorScheme"
+					title="Color scheme"
+					group="color"
+					:options="colorSchemes"
+				/>
 			</div>
 			<div class="options">
 				<h2>Aspect ratio</h2>
@@ -105,7 +81,7 @@
 				<Chart
 					:type="type"
 					:format="format"
-					:colors="colors"
+					:colors="colorScheme"
 					:ratio="ratio"
 					:is-stacked="isStacked"
 					:is-normalized="isNormalized"
@@ -148,6 +124,17 @@ const formats = [{
 	name: 'Percentage',
 }];
 
+const colorSchemes = [{
+	id: 'forest',
+	name: 'Forest',
+}, {
+	id: 'ocean',
+	name: 'Ocean',
+}, {
+	id: 'volcano',
+	name: 'Volcano',
+}];
+
 export default defineComponent({
 	components: {
 		Chart,
@@ -162,7 +149,7 @@ export default defineComponent({
 		const isStacked = ref(false);
 		const isNormalized = ref(false);
 
-		const colors = ref('forest');
+		const colorScheme = ref('forest');
 		const ratio = ref('normal');
 
 		return {
@@ -177,7 +164,9 @@ export default defineComponent({
 			formats,
 			format,
 
-			colors,
+			colorSchemes,
+			colorScheme,
+
 			ratio,
 		};
 	},
