@@ -7,6 +7,7 @@
 <style>
 :root {
 	--text-primary: #1f2937;
+	--text-secondary: #4b5563;
 	--border-normal: #e5e7eb;
 	--border-selected: #93c5fd;
 	--border-focused: #3b82f6;
