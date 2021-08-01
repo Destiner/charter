@@ -35,6 +35,7 @@
 					title="Format"
 					group="format"
 					:options="formats"
+					compact
 				/>
 			</div>
 			<div class="options">
