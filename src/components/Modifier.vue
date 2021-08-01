@@ -48,13 +48,13 @@ export default defineComponent({
 	justify-content: center;
 	width: 128px;
 	padding: 8px 0;
-	border: 2px solid #f3f4f6;
-	border-radius: 16px;
+	border: 2px solid var(--border-normal);
+	border-radius: var(--border-radius);
 	background: transparent;
 	font-size: 16px;
 }
 
 .switch.enabled {
-	border-color: #93c5fd;
+	border-color: var(--border-selected);
 }
 </style>

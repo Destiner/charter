@@ -92,16 +92,16 @@ export default defineComponent({
 }
 
 .body {
-	border: 2px solid #f3f4f6;
-	border-radius: 16px;
+	border: 2px solid var(--border-normal);
+	border-radius: var(--border-radius);
 }
 
 .body.checked {
-	border-color: #93c5fd;
+	border-color: var(--border-selected);
 }
 
 .body.active {
-	border-color: #3b82f6;
+	border-color: var(--border-focused);
 }
 
 .imagery {

@@ -168,14 +168,14 @@ export default defineComponent({
 <style scoped>
 textarea {
 	padding: 8px;
-	border: 2px solid #f3f4f6;
-	border-radius: 16px;
+	border: 2px solid var(--border-normal);
+	border-radius: var(--border-radius);
 	outline: none;
 	font-size: 12px;
 }
 
 textarea:focus {
-	border-color: #3b82f6;
+	border-color: var(--border-focused);
 }
 
 .page {
