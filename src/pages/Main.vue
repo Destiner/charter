@@ -46,27 +46,27 @@
 				<div class="data-types">
 					<div>
 						<input
-							v-model="dataType"
+							v-model="format"
 							type="radio"
-							name="dataType"
+							name="format"
 							value="number"
 						>
 						<label for="number">Number</label>
 					</div>
 					<div>
 						<input
-							v-model="dataType"
+							v-model="format"
 							type="radio"
-							name="dataType"
+							name="format"
 							value="currency"
 						>
 						<label for="currency">Currency</label>
 					</div>
 					<div>
 						<input
-							v-model="dataType"
+							v-model="format"
 							type="radio"
-							name="dataType"
+							name="format"
 							value="percentage"
 						>
 						<label for="percentage">Percentage</label>
@@ -133,7 +133,7 @@
 			<div v-if="data">
 				<Chart
 					:type="type"
-					:data-type="dataType"
+					:format="format"
 					:colors="colors"
 					:ratio="ratio"
 					:is-stacked="isStacked"
@@ -175,7 +175,7 @@ export default defineComponent({
 		const dataText = ref(SAMPLE);
 		const data = computed(() => parseCSV(dataText.value));
 
-		const dataType = ref('number');
+		const format = ref('number');
 		const type = ref('line');
 		const isStacked = ref(false);
 		const isNormalized = ref(false);
@@ -187,7 +187,7 @@ export default defineComponent({
 			dataText,
 			data,
 
-			dataType,
+			format,
 
 			types,
 			type,

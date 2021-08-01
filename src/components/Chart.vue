@@ -15,7 +15,7 @@ import ApexChart from 'vue3-apexcharts';
 import { CSV } from '@/utils/csv';
 
 type Type = 'line' | 'area' | 'bar';
-type DataType = 'number' | 'currency' | 'percentage';
+type Format = 'number' | 'currency' | 'percentage';
 type ColorScheme = 'forest' | 'ocean' | 'volcano';
 type AspectRatio = 'normal' | 'wide';
 
@@ -28,8 +28,8 @@ export default defineComponent({
 			type: String as PropType<Type>,
 			default: 'bar',
 		},
-		dataType: {
-			type: String as PropType<DataType>,
+		format: {
+			type: String as PropType<Format>,
 			default: 'number',
 		},
 		colors: {
@@ -54,7 +54,7 @@ export default defineComponent({
 		},
 	},
 	setup(props) {
-		const { type, dataType, colors, ratio, isStacked, isNormalized, data } = toRefs(props);
+		const { type, format, colors, ratio, isStacked, isNormalized, data } = toRefs(props);
 
 		const height = computed(() => {
 			if (ratio.value === 'wide') {
@@ -107,7 +107,7 @@ export default defineComponent({
 				},
 				yaxis: {
 					labels: {
-						formatter: getFormatter(dataType.value, isNormalized.value),
+						formatter: getFormatter(format.value, isNormalized.value),
 					},
 					min: isNormalized.value ? 0 : undefined,
 					max: isNormalized.value ? 1 : undefined,
@@ -132,7 +132,7 @@ export default defineComponent({
 			};
 		});
 
-		function getFormatter(type: DataType, isNormalized: boolean) {
+		function getFormatter(format: Format, isNormalized: boolean) {
 			function formatNumber(value: number) {
 				const valueFormat = new Intl.NumberFormat('en-US', {
 					// @ts-ignore
@@ -167,13 +167,13 @@ export default defineComponent({
 			if (isNormalized) {
 				return formatShare;
 			}
-			if (type === 'number') {
+			if (format === 'number') {
 				return formatNumber;
 			}
-			if (type === 'percentage') {
+			if (format === 'percentage') {
 				return formatShare;
 			}
-			if (type === 'currency') {
+			if (format === 'currency') {
 				return formatCurrency;
 			}
 			return formatNumber;
