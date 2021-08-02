@@ -46,13 +46,12 @@ export default defineComponent({
 	position: relative;
 	align-items: center;
 	justify-content: center;
-	width: 132px;
-	padding: 8px 0;
+	padding: 8px;
 	border: 2px solid var(--border-normal);
 	border-radius: var(--border-radius);
 	background: transparent;
 	color: var(--text-primary);
-	font-size: 16px;
+	font-size: 14px;
 }
 
 .switch.enabled {
