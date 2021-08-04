@@ -58,7 +58,7 @@ export default defineComponent({
 
 		const height = computed(() => {
 			if (ratio.value === 'wide') {
-				return '200px';
+				return '250px';
 			}
 			return '400px';
 		});
