@@ -89,6 +89,7 @@ export default defineComponent({
 				chart: {
 					id: 'chart',
 					stacked: isStacked.value,
+					type: type.value,
 					stackType: 'normal',
 					toolbar: {
 						show: false,
