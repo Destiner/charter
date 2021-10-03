@@ -109,6 +109,7 @@ export default defineComponent({
 
 .option {
 	outline: none;
+	cursor: pointer;
 }
 
 .body {
