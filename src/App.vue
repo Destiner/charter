@@ -49,10 +49,3 @@ a {
 	color:  var(--text-secondary);
 }
 </style>
-
-<!--
-* custom color schemes
-* multiple data types
-* export as svg/png
-* mobile ready
--->

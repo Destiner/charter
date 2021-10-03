@@ -13,3 +13,10 @@ Timestamp,Apples,Oranges,Grapes
 1626480000,30,27,8
 1626566400,38,30,8
 ```
+
+## TODO
+
+* custom color schemes
+* multiple data types
+* export as svg/png
+* mobile ready
