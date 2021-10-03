@@ -1,6 +1,14 @@
 <template>
 	<div id="app">
 		<router-view />
+		<footer>
+			<a
+				href="https://github.com/Destiner/charter"
+				target="_blank"
+			>
+				Source code
+			</a>
+		</footer>
 	</div>
 </template>
 
@@ -31,6 +39,14 @@ body {
 	background: var(--bg-primary);
 	color: var(--text-primary);
 	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', Helvetica, Arial, sans-serif;
+}
+
+footer {
+	margin: 16px;
+}
+
+a {
+	color:  var(--text-secondary);
 }
 </style>
 
