@@ -129,6 +129,7 @@ export default defineComponent({
 				},
 				stroke: {
 					show: type.value === 'line' ? true : false,
+					width: 2,
 				},
 			};
 		});
